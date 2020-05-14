@@ -1,0 +1,102 @@
+
+
+
+\newcommand{\oldpull}[2]{
+\begin{frame}{Pull distribution for #2, with constrained coefficients }
+\includegraphics[width=\textwidth]{2020_04_28/figs/#1.png}
+\end{frame}
+
+}
+\newcommand{\pullDist}[3]{
+\begin{frame}{Pull distribution for $C_{#1}$ with the #3 tag}
+\includegraphics[width=\textwidth]{2020_04_28/figs/pulls/#2_#1.png}
+\end{frame}
+
+}
+\newcommand{\diffDist}[3]{
+\begin{frame}{Pull distribution for $C_{#1}$ with the #3 tag}
+\includegraphics[width=\textwidth]{2020_04_28/figs/diffs/#2_#1.png}
+\end{frame}
+
+}
+
+
+\newcommand{\dists}[3]{
+\begin{frame}{$C_{#1}$ with the #3}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=\textwidth]{2020_04_28/figs/diffs/#2_#1.png}
+\end{column}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=\textwidth]{2020_04_28/figs/pulls/#2_#1.png}
+\end{column}
+\end{columns}
+
+Left : Distribution of $C_{#1}^\text{Fit} - C_{#1}^\text{True}$,
+
+right : $(C_{#1}^\text{Fit} - C_{#1}^\text{True})/\sigma C_{#1}^\text{Fit}$
+\end{frame}
+
+}
+
+\newcommand{\alldists}[2]{
+\dists{00}{#1}{#2}
+\dists{01}{#1}{#2}
+\dists{10}{#1}{#2}
+\dists{02}{#1}{#2}
+\dists{11}{#1}{#2}
+\dists{02}{#1}{#2}
+}
+
+\newcommand{\comparePull}[2]{
+
+\begin{frame}{Comparison of legendre and antisymmetric legendre for the #2 tag}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=\textwidth]{2020_05_06/figs/2/legendre/#1.png}
+\end{column}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=\textwidth]{2020_05_06/figs/2/antiSym/#1.png}
+\end{column}
+\end{columns}
+Left : Pulls for the 2nd order legendre polynomial, right : pulls for the 2nd order antisymmetric polynomial
+\end{frame}
+}
+
+\begin{frame}{Overview}
+We compare the pulls for the two correction functions to $\dd$ for $D \to \kspipi$
+\begin{equation*}
+\begin{split}
+    f_\text{legendre} &= \sum_{i=0}^{N_\text{Order}}\sum_{j=0}^{N_\text{Order} - i} C_{ij}P^\text{legendre}_{i}(z_+)P^\text{legendre}_{j}(z_-) \\ 
+    f_\text{antiSym} &= \sum_{i=0}^{N_\text{Order}}\sum_{j=0}^{N_\text{Order} - i} C_{ij}P^\text{legendre}_{i}(w_+)P^\text{legendre}_{2j+1}(w_-) 
+\end{split}
+   
+\end{equation*}
+where 
+\begin{equation*}
+    \begin{split}
+       z_\pm &= \frac{m_\pm^2 - (\max m_\pm^2 + \min m_\pm^2)}{\max m_\pm^2 - \min m_\pm^2} \\
+       w_\pm &= \frac{1}{2} \left(z_+ \pm z_- \right)
+    \end{split}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Overview 2}
+\begin{enumerate}
+    \item $C_{ij}$ was originally constrained to $|C_{ij}| < \frac{2 \pi}{(N_\text{Order} + 1)(N_\text{Order + 2})}$, but this kills off higher order polynomials since $P^\text{legendre}_{i+1}(x) << P^\text{legendre}_i(x)$.
+    \item ``Combined'' Log likelihood does indeed produce the sum of all likelihoods per tag
+    \end{enumerate}
+\end{frame}
+
+\comparePull{Comb}{Combined}
+\oldpull{Comb}{Combined}
+\comparePull{KK}{$\KK$}
+\oldpull{KK}{$\KK$}
+\comparePull{Kppim}{$\Kppim$}
+\oldpull{Kppim}{$\Kppim$}
+\comparePull{Kmpip}{$\Kmpip$}
+\oldpull{Kmpip}{$\Kmpip$}
+\comparePull{Kspi0}{$\Kspiz$}
+\oldpull{Kspi0}{$\Kspiz$}
+\comparePull{Kspipi}{$\Kspipi$}
+\oldpull{Kspipi}{$\Kspipi$}

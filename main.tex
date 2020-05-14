@@ -1,0 +1,60 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{hyperref}
+\usepackage{multicol}
+%#\usepackage{multirow}
+\usetheme{boxes}
+\newcommand{\Ks}{\ensuremath{K_S^0}}
+\newcommand{\ks}{\ensuremath{K_S^0}}
+\newcommand{\dd}{\ensuremath{\Delta \delta_D}}
+\newcommand{\kspipi}{\ensuremath{\ks \pi^+ \pi^-}}
+\newcommand{\Kspipi}{\ensuremath{\ks \pi^+ \pi^-}}
+\newcommand{\diffDtokspipi}{\ensuremath{\kspipi{D^0}} \text{and} \ensuremath{\kspipi{\bar{D}^0}} }
+\newcommand{\MP}{\ensuremath{m^2_+}}
+\newcommand{\MM}{\ensuremath{m^2_-}}
+\newcommand{\MZ}{\ensuremath{m^2_0}}
+\newcommand{\psires}{\ensuremath{\psi(3770)}}
+\newcommand{\phasePosition}{\ensuremath{m^2_+,m^2_-}}
+\newcommand{\phasePositionT}{\ensuremath{m^2_-,m^2_+}}
+\newcommand{\Dzbar}{\ensuremath{\bar{D}^0} }
+\newcommand{\Dz}{\ensuremath{D^0} }
+\newcommand{\Bzbar}{\ensuremath{\bar{B}^0} }
+\newcommand{\Bz}{\ensuremath{B^0} }
+\newcommand{\z}{\ensuremath{\textbf{z}}}
+%These macros are save time, usage
+%\subAmp{particle}{component} -e.g \subAmp{\Dz}{L_{\pi^+\pi^-}=0}
+\newcommand{\subAmp}[2]{\ensuremath{A_{#1}^{#2}\left(\phasePosition \right)}}
+%\modelAmp{particle}{model name} - e.g. \modelAmp{\Dz}{Belle}
+\newcommand{\modelAmp}[2]{\ensuremath{A_{#1}^{\text{#2}}\left(\phasePosition \right)}}
+\newcommand{\genAmp}[2]{\ensuremath{A_{#1}^{\text{#2}}\left(\mathcal{P} \right)}}
+%Generic input amp (actually you could use \modelAmp instead if you want
+\newcommand{\inputAmp}[1]{\ensuremath{A_{#1}^{\text{input}}\left(\phasePosition\right)}}
+%True model - what the decay really is
+\newcommand{\trueAmp}[1]{\ensuremath{A_{#1}^{\text{True}}\left(\phasePosition\right)}}
+%a_r and phi_r, again saves writing $, _, ^ everywhere
+\newcommand{\magPar}[1]{\ensuremath{a_{#1}}}
+\newcommand{\phPar}[1]{\ensuremath{\phi_{#1}}}
+\newcommand{\KK}{\ensuremath{K^+ K^-}}
+\newcommand{\Kppim}{\ensuremath{K^+ \pi^-}}
+\newcommand{\Kmpip}{\ensuremath{K^- \pi^+}}
+\newcommand{\Kspiz}{\ensuremath{\ks \pi^0}}
+\newcommand{\kspiz}{\ensuremath{\ks \pi^0}}
+\title{Progress for the Quasi-Model independent method to extract $\dd$ from correlated $D \to \kspipi$ decays}
+\begin{document}
+\begin{frame}{}
+    \maketitle
+\end{frame}
+%\input{2020_04_28/slides.tex}
+\input{2020_05_06/slides.tex}
+\end{document}
