@@ -6,5 +6,59 @@
 
 }
 
-\pull{chebyshev}{Comb}{Combined Tag}
-\pull{simple}{Comb}{Combined Tag}
+
+\newcommand{\pulls}[1]{
+    \pull{#1}{Comb}{Combined Tag}
+    \pull{#1}{KK}{$\KK$ tag}
+    \pull{#1}{Kspi0}{$\Kspiz$ tag}
+    \pull{#1}{Kppim}{$\Kppim$ tag}
+    \pull{#1}{Kmpip}{$\Kmpip$ tag} 
+    \pull{#1}{Kspipi}{$\Kspipi$ tag}
+}
+
+
+\newcommand{\projod}[5]{
+    \begin{frame}{Projection for #5}
+
+
+        \includegraphics[width=\textwidth]{2020_05_14/figs/antiSym_#1/antiSym_#1/proj/#2/#3/#4/s01.png}
+
+    \end{frame}
+
+    \begin{frame}{Projection for #5}
+            \includegraphics[width=\textwidth]{2020_05_14/figs/antiSym_#1/antiSym_#1/proj/#2/#3/#4/s02.png}
+
+   
+
+    \end{frame}
+}
+
+\newcommand{\projtd}[5]{
+    \begin{frame}{Projection for #5}
+
+
+                \includegraphics[width=\textwidth]{2020_05_14/figs/antiSym_#1/antiSym_#1/proj/#2/#3/#4_s01_vs_s02.png}
+
+    \end{frame}
+    \begin{frame}{Projection for #5}
+
+                \includegraphics[width=\textwidth]{2020_05_14/figs/antiSym_#1/antiSym_#1/proj/#2/#3/#4_s01_vs_s02_pull.png}
+
+
+    \end{frame}
+
+}
+
+\newcommand{\allprojod}[3]{
+    \projod{#1}{#2}{#3}{KK}{s01}
+    \projod{#1}{#2}{#3}{Kspi0}{s01}
+    \projod{#1}{#2}{#3}{Kppim}{s01}
+    \projod{#1}{#2}{#3}{Kmpip}{s01}
+    \projod{#1}{#2}{#3}{Kspipi}{s01}
+
+}
+
+\pulls{chebyshev}
+\pulls{simple}
+\projod{simple}{136}{0}{KK}{s01}
+\projtd{simple}{136}{0}{KK}{s01}
