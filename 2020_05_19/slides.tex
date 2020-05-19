@@ -1,0 +1,37 @@
+\newcommand{\pullnm}[3]{
+
+\begin{frame}{Pulls for #3}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/pulls/#2.png}
+\end{frame}
+
+\begin{frame}{Statuses for #3}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/#2_Status.png}
+\end{frame}
+
+}
+
+\newcommand{\pullsnm}[2]{
+\pullnm{#1}{Comb}{Combined Tags using #2}
+\pullnm{#1}{KK}{$\KK$ Tag using #2}
+\pullnm{#1}{Kspi0}{$\Kspiz$ Tag using #2}
+\pullnm{#1}{Kppim}{$\Kppim$ Tag using #2}
+\pullnm{#1}{Kmpip}{$\Kmpip$ Tag using #2}
+\pullnm{#1}{Kspipi}{$\Kspipi$ Tag using #2}
+
+}
+\begin{frame}{Overview}
+\begin{itemize}
+\item Fixed the combined fitter object, the calculation of $\sum -2\log \mathcal{L}$ was not performed correctly - now it is.
+\item Fitted the pull distribution with $N(\mu,\sigma)$ (as well as plotting the sample mean/deviation).
+\end{itemize}
+\end{frame}
+
+\pullsnm{simple}{Antisymmetric simple polynomial}
+\pullsnm{legendre}{Antisymmetric legendre polynomial}
+\pullsnm{chebyshev}{Antisymmetric chebyshev polynomial}
+
+\begin{frame}{Next Steps}
+\begin{itemize}
+\item Increase statistics on the pull study to $N=100$
+\end{itemize}
+\end{frame}
