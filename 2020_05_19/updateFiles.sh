@@ -10,3 +10,8 @@ cd ..
 cd antiSym_chebyshev
 ./getFiles.sh antiSym_chebyshev/2/
 cd ..
+
+
+cd legendre
+./getFiles.sh legendre/2/
+cd ..
