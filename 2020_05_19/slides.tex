@@ -9,7 +9,8 @@
 \caption{Blue : $\pm 1$, Green : $\pm \frac{1}{\sqrt{N}}$}
 \end{figure}
 \end{frame}
-
+}
+\newcommand{\pulldistnm}[3]{
 
 \begin{frame}{Distributions for #3}
 
@@ -75,6 +76,17 @@
 \pullnm{#1}{Kspipi}{$\Kspipi$ Tag using #2}
 
 }
+
+\newcommand{\pulldistsnm}[2]{
+\pulldistnm{#1}{Comb}{Combined Tags using #2}
+\pulldistnm{#1}{KK}{$\KK$ Tag using #2}
+\pulldistnm{#1}{Kspi0}{$\Kspiz$ Tag using #2}
+\pulldistnm{#1}{Kppim}{$\Kppim$ Tag using #2}
+\pulldistnm{#1}{Kmpip}{$\Kmpip$ Tag using #2}
+\pulldistnm{#1}{Kspipi}{$\Kspipi$ Tag using #2}
+
+}
+
 \begin{frame}{Overview}
 \begin{itemize}
 \item Fixed the combined fitter object, the calculation of $\sum -2\log \mathcal{L}$ was not performed correctly - now it is.
@@ -163,8 +175,17 @@ $C_{20}$ & $\left(2 w_+^2 - 1\right) w_-$
 
 \begin{frame}{Next Steps}
 \begin{itemize}
-\item Increase statistics on the pull study to $N=100$
+\item Examine behaviour for higher order polynomial, running $C_{30}$ now.
+\item How will these biases in $C_{ij}$ affect measurement of $\dd$ - test with a ``wrong'' model we try to correct and smear the polynomial $\pm$ bias
+\item How will a bias in $C_{ij}$ affect measurement of $\gamma$ (or mixing parameters)? - Need to implement this in $B \to Dh$ in \texttt{AmpGen} to test this.
+\item Looks like antisymmetric orthongonal (legendre/chebyshev) has smaller biases in $C_{ij}$ than the antisymmetric simple polynomial - use these functions instead then.
 \end{itemize}
 \end{frame}
+
+
+\pulldistsnm{simple}{Antisymmetric simple polynomial}
+\pulldistsnm{legendre}{Antisymmetric legendre polynomial}
+\pulldistsnm{chebyshev}{Antisymmetric chebyshev polynomial}
+
 
 
