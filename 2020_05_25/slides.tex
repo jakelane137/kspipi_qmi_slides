@@ -94,15 +94,18 @@
 \pulldisttf{#1}{Kspipi}{$\Kspipi$ Tag using #2}
 
 }
-\pullstf{legendre}{Legendre antisymmetric}
-\statstf{legendre}{Legendre antisymmetric}
 \begin{frame}{Overview}
     \begin{itemize}
+	\item Performed a pull study for $C_{00..03,00..30}$
             \item \texttt{Singularity} image available at \texttt{/eos/lhcb/user/j/jolane/ampgen.sif} to run \texttt{AmpGen} programs.
             \item Made the object \texttt{pCoherentSum} which constructs the ampltidues for $B \to (\Dz,\Dzbar) h$ analyses.
             \item Built \texttt{gammaFit} program to perform simulatenous fit of \texttt{BESIII} data with \texttt{pCorrelatedSum} objects and \texttt{LHCb} data with \texttt{pCoherentSum} objects.
     \end{itemize}
 \end{frame}
+
+\pullstf{legendre}{Legendre antisymmetric}
+\statstf{legendre}{Legendre antisymmetric}
+
 \begin{frame}{\texttt{pCoherentSum}}
         For the decay $B^- \to D h^-$, we have the amplitude,
 	\begin{equation}
@@ -123,7 +126,8 @@
 	\begin{itemize}
 		\item We see if $r_B e^{i (\delta_B - \gamma)} =0$ reproduces the single $\Dz \to \kspipi$ amplitude we get from \texttt{CoherentSum}
 		\item We see if $r_B e^{i (\delta_B - \gamma)} =\pm1$ reproduces $D \to \kspipi$ against $D \to \KK$ (-1) and $D \to \Kspiz$ (+1)
-		\item We also check if the combined log likelihood for different $B \to D h$ decays
+		\item We also check if the combined log likelihood for different $B \to D h$ decays works properly
+		\item Finally we perform a pull study for just $r_B, \delta_B, \gamma$ as variables
 	\end{itemize}
 \end{frame}
 
@@ -140,6 +144,7 @@
 \comparetf{rB_Norm}{Scan for $r_B$}
 \comparetf{dB_Norm}{Scan for $\delta_B$}
 \comparetf{gamma_Norm}{Scan for $\gamma$}
+\comparetf{pullTest}{Pulls $ r_B, \delta_B, \gamma$}
 
    \begin{frame}{Simulatenous fit}
            We have 2 sets of data, one from \texttt{BESIII}, and one from \texttt{LHCb}. We build a set of correlated amplitudes

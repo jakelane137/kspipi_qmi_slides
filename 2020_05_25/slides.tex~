@@ -94,6 +94,12 @@
 \pulldisttf{#1}{Kspipi}{$\Kspipi$ Tag using #2}
 
 }
+\begin{frame}{Testing higher order polynomial correction to $\dd$}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+		\end{tabular}
+	\end{center}
+\end{frame}
 \pullstf{legendre}{Legendre antisymmetric}
 \statstf{legendre}{Legendre antisymmetric}
 \begin{frame}{Overview}
@@ -123,7 +129,8 @@
 	\begin{itemize}
 		\item We see if $r_B e^{i (\delta_B - \gamma)} =0$ reproduces the single $\Dz \to \kspipi$ amplitude we get from \texttt{CoherentSum}
 		\item We see if $r_B e^{i (\delta_B - \gamma)} =\pm1$ reproduces $D \to \kspipi$ against $D \to \KK$ (-1) and $D \to \Kspiz$ (+1)
-		\item We also check if the combined log likelihood for different $B \to D h$ decays
+		\item We also check if the combined log likelihood for different $B \to D h$ decays works properly
+		\item Finally we perform a pull study for just $r_B, \delta_B, \gamma$ as variables
 	\end{itemize}
 \end{frame}
 
@@ -140,6 +147,7 @@
 \comparetf{rB_Norm}{Scan for $r_B$}
 \comparetf{dB_Norm}{Scan for $\delta_B$}
 \comparetf{gamma_Norm}{Scan for $\gamma$}
+\comparetf{pullTest}{Pulls $ r_B, \delta_B, \gamma$}
 
    \begin{frame}{Simulatenous fit}
            We have 2 sets of data, one from \texttt{BESIII}, and one from \texttt{LHCb}. We build a set of correlated amplitudes
@@ -163,7 +171,7 @@
 
 
 
-\begin{frame}{Yields from BESIII}
+\begin{frame}{Yields}
 From \url{https://arxiv.org/pdf/2003.00091.pdf}
 \begin{tabular}{|c|c|c|}
 Tag & Yield from \SI{2.9}{\per\femto\barn} at BESIII & $10 \times$ yield of BESIII \\ \hline
@@ -172,6 +180,12 @@ $\Kspiz$ & 643 & 6430 \\
 $\Kppim$ & 4740 & 47400 \\
 $\Kspipi$ & 899 & 8990
 \end{tabular}
+	From \url{https://ora.ox.ac.uk/objects/uuid:c9744e03-1e6d-4c1a-8724-b58d8005ca56}
+	\begin{tabular}{|c|c|c|}
+		B Decay & Yield from \SI{2}{\per\femto\barn} at LHCb & $5 \times $ yield \\ \hline 
+		$B^- \to D h^-$ & 1917 & 9585 \\
+		$B^+ \to D h^+$ & 1940 & 9700
+	\end{tabular}
 \end{frame}
 
 
