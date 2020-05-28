@@ -1,0 +1,178 @@
+\newcommand{\pulltf}[3]{
+
+\begin{frame}{Pulls for #3}
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/pulls/#2.png}
+\caption{Blue : $\pm 1$, Green : $\pm \frac{1}{\sqrt{N}}$}
+\end{figure}
+\end{frame}
+}
+\newcommand{\pulldisttf}[3]{
+
+\begin{frame}{Distributions for #3}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/pulls/pulls/#2_00.png}
+\caption{$C_{00}$}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Distributions for #3}
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/pulls/pulls/#2_01.png}
+\caption{$C_{01}$}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Distributions for #3}
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/pulls/pulls/#2_10.png}
+\caption{$C_{10}$}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Distributions for #3}
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/pulls/pulls/#2_11.png}
+\caption{$C_{11}$}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Distributions for #3}
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/pulls/pulls/#2_02.png}
+\caption{$C_{02}$}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Distributions for #3}
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/pulls/pulls/#2_20.png}
+\caption{$C_{20}$}
+\end{figure}
+\end{frame}
+}
+
+
+\newcommand{\statustf}[3]{
+\begin{frame}{Statuses for #3}
+\begin{figure}
+\includegraphics[width=\textwidth]{2020_05_19/antiSym_#1/3/#2_Status.png}
+\end{figure}
+\end{frame}
+
+}
+
+
+\newcommand{\pullstf}[2]{
+\pulltf{#1}{Comb}{Combined Tags using #2}
+\pulltf{#1}{KK}{$\KK$ Tag using #2}
+\pulltf{#1}{Kspi0}{$\Kspiz$ Tag using #2}
+\pulltf{#1}{Kppim}{$\Kppim$ Tag using #2}
+\pulltf{#1}{Kmpip}{$\Kmpip$ Tag using #2}
+\pulltf{#1}{Kspipi}{$\Kspipi$ Tag using #2}
+
+}
+
+\newcommand{\statstf}[2]{
+\statustf{#1}{Comb}{Combined Tags using #2}
+\statustf{#1}{KK}{$\KK$ Tag using #2}
+\statustf{#1}{Kspi0}{$\Kspiz$ Tag using #2}
+\statustf{#1}{Kppim}{$\Kppim$ Tag using #2}
+\statustf{#1}{Kmpip}{$\Kmpip$ Tag using #2}
+\statustf{#1}{Kspipi}{$\Kspipi$ Tag using #2}
+
+}
+
+
+\newcommand{\pulldiststf}[2]{
+\pulldisttf{#1}{Comb}{Combined Tags using #2}
+\pulldisttf{#1}{KK}{$\KK$ Tag using #2}
+\pulldisttf{#1}{Kspi0}{$\Kspiz$ Tag using #2}
+\pulldisttf{#1}{Kppim}{$\Kppim$ Tag using #2}
+\pulldisttf{#1}{Kmpip}{$\Kmpip$ Tag using #2}
+\pulldisttf{#1}{Kspipi}{$\Kspipi$ Tag using #2}
+
+}
+\pullstf{legendre}{Legendre antisymmetric}
+\statstf{legendre}{Legendre antisymmetric}
+\begin{frame}{Overview}
+    \begin{itemize}
+            \item \texttt{Singularity} image available at \texttt{/eos/lhcb/user/j/jolane/ampgen.sif} to run \texttt{AmpGen} programs.
+            \item Made the object \texttt{pCoherentSum} which constructs the ampltidues for $B \to (\Dz,\Dzbar) h$ analyses.
+            \item Built \texttt{gammaFit} program to perform simulatenous fit of \texttt{BESIII} data with \texttt{pCorrelatedSum} objects and \texttt{LHCb} data with \texttt{pCoherentSum} objects.
+    \end{itemize}
+\end{frame}
+\begin{frame}{\texttt{pCoherentSum}}
+        For the decay $B^- \to D h^-$, we have the amplitude,
+	\begin{equation}
+                        A_B(\z) = A_{\Dz}(\z) + r_B e^{i \left(\delta_B - \gamma\right)} A_{\Dzbar}(\z), 
+	\end{equation}
+        \begin{equation}
+                \begin{split}
+			|A_B(\z)|^2 &= |A_{\Dz}(\z)|^2 + r_B^2 |A_{\Dzbar}(\z)|^2 \\ &+ 2 r_B |A_{\Dz}(\z)||A_{\Dzbar}(\z)| \cos \left(\dd(\z) + \delta_B - \gamma\right)
+                \end{split}
+        \end{equation}
+        We build \texttt{pCoherentSum} with \texttt{CoherentSum}'s for $A_{\Dz, \Dzbar}$, and the 3 real parameters $r_B, \delta_B, \gamma$ are \texttt{MinuitParameter}'s. 
+        The $\dd$ is corrected by the same $C_{ij}$ as the amplitude for correlated amplitudes.
+        In the case of $B^+ \to \bar{D} h^+$, we change $\Dz$ to $\Dzbar$ and change the $-\gamma$ to $+\gamma$, the $r_B$ and $\delta_B$ are the same \texttt{MinuitParameter}'s.
+        
+   \end{frame}
+   
+\begin{frame}{Testing \texttt{pCoherentSum}}
+	\begin{itemize}
+		\item We see if $r_B e^{i (\delta_B - \gamma)} =0$ reproduces the single $\Dz \to \kspipi$ amplitude we get from \texttt{CoherentSum}
+		\item We see if $r_B e^{i (\delta_B - \gamma)} =\pm1$ reproduces $D \to \kspipi$ against $D \to \KK$ (-1) and $D \to \Kspiz$ (+1)
+		\item We also check if the combined log likelihood for different $B \to D h$ decays
+	\end{itemize}
+\end{frame}
+
+\newcommand{\comparetf}[2]{
+	\begin{frame}{#2}
+		\includegraphics[width=\textwidth]{2020_05_25/figs/gamma/#1.png}
+	\end{frame}
+}
+
+
+\comparetf{uncorrVStest0}{\texttt{CoherentSum} v.s. $r_B e^{i(\delta_B + \gamma)} = 0$}
+\comparetf{KKVStestKK}{$\KK$ tag v.s. $r_B e^{i(\delta_B + \gamma)} = -1$}
+\comparetf{Kspi0VStestKspi0}{$\Kspiz$ tag v.s. $r_B e^{i(\delta_B + \gamma)} = 1$}
+\comparetf{rB_Norm}{Scan for $r_B$}
+\comparetf{dB_Norm}{Scan for $\delta_B$}
+\comparetf{gamma_Norm}{Scan for $\gamma$}
+
+   \begin{frame}{Simulatenous fit}
+           We have 2 sets of data, one from \texttt{BESIII}, and one from \texttt{LHCb}. We build a set of correlated amplitudes
+           \begin{equation}
+                   \Psi_\text{T}(\z_1, \z_2) = A_{\Dz}(\z_1) A_{\bar{T}}(\z_2) - A_{\Dzbar}(\z_1) A_{T}(\z_2),
+           \end{equation}
+            for tags, $T$. We can make a set of log likelihoods for each $T$ (with tagged $\Dz \to \kspipi$ v.s. $\Dzbar \to T$),
+            \begin{equation}
+                    \log \mathcal{L}_{T} = \sum_{\z_{1,2} \in D_T} \log |\Psi_\text{T}(\z_1,\z_2)|^2.
+            \end{equation}
+            Next for the all of our $B \to Dh$ decays (e.g. $B^\pm \to D h^\pm$) we build log-likelihoods,
+            \begin{equation}
+                    \log \mathcal{L}_{B} = \sum_{\z \in D_B} \log |A_B(\z)|^2,
+            \end{equation}
+            finally we construct the total log-likelihood, 
+            \begin{equation}
+                    \log \mathcal{L}_\text{total} = \sum_T \log \mathcal{L}_{T} + \sum_B \log \mathcal{L}_{B},
+            \end{equation}
+
+   \end{frame}
+
+
+
+\begin{frame}{Yields from BESIII}
+From \url{https://arxiv.org/pdf/2003.00091.pdf}
+\begin{tabular}{|c|c|c|}
+Tag & Yield from \SI{2.9}{\per\femto\barn} at BESIII & $10 \times$ yield of BESIII \\ \hline
+$\KK$ & 443 & 4430 \\
+$\Kspiz$ & 643 & 6430 \\
+$\Kppim$ & 4740 & 47400 \\
+$\Kspipi$ & 899 & 8990
+\end{tabular}
+\end{frame}
+
+
+
